@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavelah Vesselee – Portfolio</title>
+<meta name="description" content="Portfolio of Lavelah Vesselee, BCS student in AIML and Cybersecurity at Kalinga University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14213d;
+  --paper:#f3f6f8;
+  --line:#d3dce3;
+  --muted:#4d5b6e;
+  --blue:#2f5bea;
+  --alert:#e5484d;
+  --max:68rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 "Instrument Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+p{max-width:62ch;margin:0 0 1rem}
+
+.nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:.9rem clamp(1rem,4vw,3rem);background:rgba(243,246,248,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.brand{font:700 1.1rem "Bricolage Grotesque",sans-serif;color:var(--ink);text-decoration:none}
+.nav nav{display:flex;gap:1.25rem}
+.nav nav a{color:var(--ink);text-decoration:none;font-weight:500}
+.nav nav a:hover{color:var(--blue)}
+
+main{max-width:var(--max);margin:0 auto;padding:0 clamp(1rem,4vw,3rem)}
+.hero{padding:clamp(3rem,9vw,6.5rem) 0 3rem}
+.hero h1{font-size:clamp(2.2rem,6.4vw,4.6rem);font-weight:800;letter-spacing:-.02em;max-width:18ch}
+.lead{font-size:1.2rem;color:var(--muted);margin:1.5rem 0 2rem}
+.actions{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1.2rem;border:2px solid var(--ink);border-radius:.4rem;background:transparent;color:var(--ink);font:600 1rem "Instrument Sans",sans-serif;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.primary:hover{background:var(--ink);border-color:var(--ink)}
+.btn.small{padding:.4rem .9rem;font-size:.95rem}
+
+.scan{margin-top:3.5rem;padding:1.25rem;border:2px solid var(--ink);border-radius:.5rem;background:#fff;max-width:44rem}
+.scan-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.scan-head h2{font-size:1.2rem}
+.bars{position:relative;display:flex;align-items:flex-end;gap:4px;height:9rem;border-bottom:2px solid var(--ink)}
+.bar{flex:1;background:var(--line);border-radius:2px 2px 0 0;transition:background .3s,transform .3s}
+.bar.flag{background:var(--alert);transform:scaleY(1.03);transform-origin:bottom}
+.bars .threshold{position:absolute;left:0;right:0;border-top:2px dashed var(--blue);opacity:0;transition:opacity .3s}
+.bars.scanned .threshold{opacity:1}
+.scan-msg{margin:.9rem 0 0;font-size:.95rem;color:var(--muted)}
+
+.block{padding:3.5rem 0;border-top:1px solid var(--line)}
+.block h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.5rem}
+.cols{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem}
+.facts{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:.6rem 1.25rem;align-content:start}
+.facts dt{font-weight:600}
+.facts dd{margin:0;overflow-wrap:anywhere}
+
+.projects{list-style:none;margin:0;padding:0}
+.projects li{display:grid;grid-template-columns:1fr 2fr auto;gap:1rem 2rem;align-items:baseline;padding:1.25rem 0;border-top:1px solid var(--line)}
+.projects li:last-child{border-bottom:1px solid var(--line)}
+.projects h3{font-size:1.25rem}
+.projects p{margin:0;color:var(--muted)}
+.tags{font-size:.9rem;font-weight:500;color:var(--blue);white-space:nowrap}
+
+.cols h3{font-size:1.15rem;margin-bottom:.8rem}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.chips li{padding:.3rem .8rem;border:1.5px solid var(--ink);border-radius:2rem;font-weight:500;font-size:.95rem}
+
+footer{max-width:var(--max);margin:0 auto;padding:2rem clamp(1rem,4vw,3rem) 3rem;border-top:1px solid var(--line);color:var(--muted)}
+footer p{margin:0}
+
+.sr{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.sr:focus-visible + .btn{outline:3px solid var(--blue);outline-offset:3px}
+.uploader{margin-top:1.5rem}
+.doc-actions{display:flex;gap:.5rem;align-items:center}
+.link-btn{background:none;border:0;padding:0;font:inherit;font-weight:500;color:var(--alert);cursor:pointer;text-decoration:underline}
+.empty{padding:1.25rem 0;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.portrait{margin:0 0 1.75rem}
+.portrait img,.initials{display:block;width:100%;max-width:18rem;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--ink);border-radius:.5rem}
+.initials{place-items:center;background:#fff;font:800 4.5rem "Bricolage Grotesque",sans-serif;color:var(--ink)}
+.initials:not([hidden]){display:grid}
+.gallery{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:1rem}
+.shot{display:block;width:100%;padding:0;border:2px solid var(--ink);border-radius:.5rem;background:#fff;overflow:hidden;cursor:zoom-in;text-align:left;font:inherit;color:inherit}
+.shot img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.shot span{display:block;padding:.5rem .75rem;font-size:.95rem}
+.gallery-empty{grid-column:1/-1;padding:1.25rem 0;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+#lightbox{max-width:min(92vw,60rem);padding:1rem;border:2px solid var(--ink);border-radius:.5rem;background:var(--paper);color:var(--ink)}
+#lightbox::backdrop{background:rgba(20,33,61,.75)}
+#lightbox img{display:block;max-width:100%;max-height:70vh;margin:0 auto}
+#lightbox p{margin:.75rem 0}
+
+@media (max-width:760px){
+  .cols{grid-template-columns:1fr;gap:2rem}
+  .projects li{grid-template-columns:1fr;gap:.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#top">Lavelah Vesselee</a>
+  <nav aria-label="Main">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#research">Research</a>
+    <a href="#documents">Documents</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <h1>I build web tools that help spot patterns in crime, traffic and data.</h1>
+    <p class="lead">BCS student in AIML and Cybersecurity at Kalinga University, Naya Raipur. I am learning to turn data into systems people can use.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+
+    <div class="scan" aria-labelledby="scan-title">
+      <div class="scan-head">
+        <h2 id="scan-title">Try a scan</h2>
+        <button id="scanBtn" class="btn small" type="button">Run scan</button>
+      </div>
+      <div id="bars" class="bars" role="img" aria-label="Bar chart of network activity over 24 hours"></div>
+      <p id="scanMsg" class="scan-msg" aria-live="polite">Each bar is one hour of network activity. Run the scan to flag unusual spikes.</p>
+    </div>
+  </section>
+
+  <section id="about" class="block">
+    <h2>About</h2>
+    <div class="cols">
+      <div>
+        <p>I am Lavelah Vesselee, from Tailemai Town in Salayea District, Lofa County, Liberia. I study for a Bachelor of Computer Science (BCS) in AIML and Cybersecurity at Kalinga University in Naya Raipur, Chhattisgarh, India.</p>
+        <p>I am learning web development with HTML, CSS and JavaScript, and I build real sites to practise: a cybercrime analytics platform, a traffic management system and more.</p>
+      </div>
+      <div class="side">
+        <figure class="portrait">
+          <img src="images/profile.jpg" alt="Portrait of Lavelah Vesselee" width="320" height="400" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+          <div class="initials" hidden aria-label="Photo placeholder">LV</div>
+        </figure>
+        <dl class="facts">
+        <dt>Studying</dt><dd>BCS, AIML and Cybersecurity</dd>
+        <dt>University</dt><dd>Kalinga University, Naya Raipur</dd>
+        <dt>Home</dt><dd>Lofa County, Liberia</dd>
+        <dt>WhatsApp</dt><dd><a href="https://wa.me/231880111958">+231 880 111 958</a></dd>
+        <dt>Email</dt><dd><a href="mailto:lavelahvesselee1998@gmail.com">lavelahvesselee1998@gmail.com</a></dd>
+      </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="block">
+    <h2>Projects</h2>
+    <ul class="projects">
+      <li>
+        <h3>Cybercrime Predictive Analytics Framework</h3>
+        <p>A platform concept for law enforcement that uses data to anticipate and investigate cybercrime.</p>
+        <span class="tags">HTML, CSS, JavaScript</span>
+      </li>
+      <li>
+        <h3>TrafficFlow</h3>
+        <p>A traffic engineering and management website with a landing page, interactive dashboard, documentation, team page and contact form.</p>
+        <span class="tags">HTML, CSS, JavaScript</span>
+      </li>
+      <li>
+        <h3>Academia–Industry Collaboration Portal</h3>
+        <p>A portal for skill mapping, internships and placements, with separate roles for students, universities and companies.</p>
+        <span class="tags">Full-stack</span>
+      </li>
+      <li>
+        <h3>Agricultural Website</h3>
+        <p>A farming-focused site with a frontend, backend and database.</p>
+        <span class="tags">Full-stack</span>
+      </li>
+      <li>
+        <h3>Academic Research Portfolio</h3>
+        <p>A website for presenting research, publications and academic work.</p>
+        <span class="tags">Web design</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="research" class="block">
+    <h2>Research</h2>
+    <ul class="projects">
+      <li>
+        <h3>Cybersecurity and Digital Forensics</h3>
+        <p>A research paper written for first-year AIML and Cybersecurity students. It covers the fundamentals of cyber threats and defence, how digital investigations work, case studies, legal and ethical issues, how AI and machine learning are used in the field, and future trends.</p>
+        <span class="tags">Research paper</span>
+      </li>
+      <li>
+        <h3>Cybercrime Prediction Using Data</h3>
+        <p>Ongoing work on how analytics can help law enforcement anticipate cybercrime, which also drives the Cybercrime Predictive Analytics Framework project above.</p>
+        <span class="tags">In progress</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="documents" class="block">
+    <h2>Documents</h2>
+    <p>Research papers and files you can open or download.</p>
+    <ul id="docList" class="projects"></ul>
+    <div class="uploader">
+      <input id="docFile" class="sr" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" multiple>
+      <label class="btn" for="docFile">Add a document</label>
+      <p id="docNote" class="scan-msg">Files you add here are saved in this browser only. To show a file to every visitor, follow the steps in script.js.</p>
+    </div>
+  </section>
+
+  <section id="gallery" class="block">
+    <h2>Gallery</h2>
+    <p>Moments from my studies, projects and events. Select a photo to enlarge it.</p>
+    <ul id="gallery-grid" class="gallery"></ul>
+  </section>
+
+  <section id="skills" class="block">
+    <h2>Skills</h2>
+    <div class="cols">
+      <div>
+        <h3>Using now</h3>
+        <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive design</li></ul>
+      </div>
+      <div>
+        <h3>Learning</h3>
+        <ul class="chips"><li>C++</li><li>Cybersecurity</li><li>Digital forensics</li><li>AI and machine learning</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="block">
+    <h2>Contact</h2>
+    <p>Open to internships, collaborations and web projects. The quickest way to reach me is WhatsApp.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://wa.me/231880111958">Message on WhatsApp</a>
+      <a class="btn" href="mailto:lavelahvesselee1998@gmail.com">Send an email</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="year">2026</span> Lavelah Vesselee</p>
+</footer>
+<dialog id="lightbox" aria-label="Photo viewer">
+  <img id="lightboxImg" alt="">
+  <p id="lightboxCap"></p>
+  <button id="lightboxClose" class="btn small" type="button">Close</button>
+</dialog>
+<script>
+// Footer year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Demo: flag unusual activity in a row of hourly bars
+const barsEl = document.getElementById('bars');
+const msgEl = document.getElementById('scanMsg');
+const btn = document.getElementById('scanBtn');
+const HOURS = 24;
+const THRESHOLD = 75; // percent of chart height
+
+let values = [];
+
+function makeData() {
+  values = Array.from({ length: HOURS }, () => 20 + Math.random() * 35);
+  // Add 2 or 3 spikes at random hours
+  const spikes = 2 + Math.floor(Math.random() * 2);
+  for (let i = 0; i < spikes; i++) {
+    values[Math.floor(Math.random() * HOURS)] = 82 + Math.random() * 16;
+  }
+}
+
+function draw() {
+  barsEl.innerHTML = '';
+  barsEl.classList.remove('scanned');
+  const line = document.createElement('div');
+  line.className = 'threshold';
+  line.style.bottom = THRESHOLD + '%';
+  barsEl.appendChild(line);
+  values.forEach((v, i) => {
+    const b = document.createElement('div');
+    b.className = 'bar';
+    b.style.height = v + '%';
+    b.title = 'Hour ' + i + ': ' + Math.round(v) + '% activity';
+    barsEl.appendChild(b);
+  });
+  msgEl.textContent = 'Each bar is one hour of network activity. Run the scan to flag unusual spikes.';
+  btn.textContent = 'Run scan';
+}
+
+btn.addEventListener('click', () => {
+  if (barsEl.classList.contains('scanned')) {
+    makeData();
+    draw();
+    return;
+  }
+  let count = 0;
+  barsEl.querySelectorAll('.bar').forEach((bar, i) => {
+    if (values[i] > THRESHOLD) { bar.classList.add('flag'); count++; }
+  });
+  barsEl.classList.add('scanned');
+  msgEl.textContent = count + ' unusual spikes found above the dashed line. Select "New data" to try again.';
+  btn.textContent = 'New data';
+});
+
+makeData();
+draw();
+
+
+/* ---------- Documents ----------
+   To show a file to EVERY visitor:
+   1. Put the file in a folder named "documents" next to index.html.
+   2. Add a line to SITE_DOCS below, for example:
+      { title: 'Cybersecurity and Digital Forensics', file: 'documents/cybersecurity-forensics.pdf', note: 'Research paper' }
+   Files added with the "Add a document" button are saved only in your own browser. */
+const SITE_DOCS = [
+];
+
+const docListEl = document.getElementById('docList');
+const docInput = document.getElementById('docFile');
+const docNote = document.getElementById('docNote');
+let db = null;
+
+function openDB() {
+  return new Promise((resolve) => {
+    try {
+      const req = indexedDB.open('portfolio-docs', 1);
+      req.onupgradeneeded = () => req.result.createObjectStore('docs', { keyPath: 'id', autoIncrement: true });
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => resolve(null);
+    } catch (e) { resolve(null); }
+  });
+}
+function store(mode) { return db.transaction('docs', mode).objectStore('docs'); }
+function getAllLocal() {
+  return new Promise((resolve) => {
+    if (!db) return resolve([]);
+    const r = store('readonly').getAll();
+    r.onsuccess = () => resolve(r.result);
+    r.onerror = () => resolve([]);
+  });
+}
+function putLocal(rec) {
+  return new Promise((resolve) => {
+    if (!db) return resolve(false);
+    const r = store('readwrite').add(rec);
+    r.onsuccess = () => resolve(true);
+    r.onerror = () => resolve(false);
+  });
+}
+function deleteLocal(id) {
+  return new Promise((resolve) => {
+    const r = store('readwrite').delete(id);
+    r.onsuccess = r.onerror = () => resolve();
+  });
+}
+function formatSize(bytes) {
+  return bytes > 1048576 ? (bytes / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(bytes / 1024)) + ' KB';
+}
+
+async function renderDocs() {
+  const local = await getAllLocal();
+  docListEl.innerHTML = '';
+  if (!SITE_DOCS.length && !local.length) {
+    const li = document.createElement('li');
+    li.className = 'empty';
+    li.textContent = 'No documents yet. Select "Add a document" to add your first file.';
+    docListEl.appendChild(li);
+    return;
+  }
+  SITE_DOCS.forEach((d) => {
+    const li = document.createElement('li');
+    li.innerHTML = '<h3></h3><p></p><div class="doc-actions"><a target="_blank" rel="noopener">Open</a></div>';
+    li.querySelector('h3').textContent = d.title;
+    li.querySelector('p').textContent = d.note || '';
+    li.querySelector('a').href = d.file;
+    docListEl.appendChild(li);
+  });
+  local.forEach((d) => {
+    const url = URL.createObjectURL(d.file);
+    const li = document.createElement('li');
+    li.innerHTML = '<h3></h3><p></p><div class="doc-actions"><a target="_blank" rel="noopener">Open</a><button class="link-btn" type="button">Remove</button></div>';
+    li.querySelector('h3').textContent = d.title;
+    li.querySelector('p').textContent = 'Added by you, ' + formatSize(d.file.size) + ' (this browser only)';
+    li.querySelector('a').href = url;
+    li.querySelector('button').addEventListener('click', async () => {
+      await deleteLocal(d.id);
+      renderDocs();
+    });
+    docListEl.appendChild(li);
+  });
+}
+
+docInput.addEventListener('change', async () => {
+  let failed = 0;
+  for (const file of docInput.files) {
+    const ok = await putLocal({ title: file.name.replace(/\.[^.]+$/, ''), file });
+    if (!ok) failed++;
+  }
+  docInput.value = '';
+  docNote.textContent = failed
+    ? 'Could not save ' + failed + ' file(s). Your browser may be blocking storage. Use the SITE_DOCS steps in script.js instead.'
+    : 'Saved in this browser only. To show a file to every visitor, follow the steps in script.js.';
+  renderDocs();
+});
+
+openDB().then((d) => { db = d; renderDocs(); });
+
+
+/* ---------- Gallery ----------
+   1. Put your photos in the "images" folder next to index.html.
+   2. Add one line per photo below, for example:
+      { src: 'images/graduation.jpg', alt: 'Me at the university campus', caption: 'Kalinga University campus' }
+   Your portrait goes in the same folder and must be named profile.jpg. */
+const GALLERY = [
+];
+
+const gridEl = document.getElementById('gallery-grid');
+const box = document.getElementById('lightbox');
+const boxImg = document.getElementById('lightboxImg');
+const boxCap = document.getElementById('lightboxCap');
+
+if (!GALLERY.length) {
+  const li = document.createElement('li');
+  li.className = 'gallery-empty';
+  li.textContent = 'Photos coming soon.';
+  gridEl.appendChild(li);
+}
+GALLERY.forEach((p) => {
+  const li = document.createElement('li');
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'shot';
+  const img = document.createElement('img');
+  img.src = p.src;
+  img.alt = p.alt || p.caption || '';
+  img.loading = 'lazy';
+  b.appendChild(img);
+  if (p.caption) {
+    const s = document.createElement('span');
+    s.textContent = p.caption;
+    b.appendChild(s);
+  }
+  b.addEventListener('click', () => {
+    boxImg.src = p.src;
+    boxImg.alt = img.alt;
+    boxCap.textContent = p.caption || '';
+    box.showModal();
+  });
+  li.appendChild(b);
+  gridEl.appendChild(li);
+});
+document.getElementById('lightboxClose').addEventListener('click', () => box.close());
+box.addEventListener('click', (e) => { if (e.target === box) box.close(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavelah Vesselee – Portfolio</title>
+<meta name="description" content="Portfolio of Lavelah Vesselee, BCS student in AIML and Cybersecurity at Kalinga University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#top">Lavelah Vesselee</a>
+  <nav aria-label="Main">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#research">Research</a>
+    <a href="#documents">Documents</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <h1>I build web tools that help spot patterns in crime, traffic and data.</h1>
+    <p class="lead">BCS student in AIML and Cybersecurity at Kalinga University, Naya Raipur. I am learning to turn data into systems people can use.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+
+    <div class="scan" aria-labelledby="scan-title">
+      <div class="scan-head">
+        <h2 id="scan-title">Try a scan</h2>
+        <button id="scanBtn" class="btn small" type="button">Run scan</button>
+      </div>
+      <div id="bars" class="bars" role="img" aria-label="Bar chart of network activity over 24 hours"></div>
+      <p id="scanMsg" class="scan-msg" aria-live="polite">Each bar is one hour of network activity. Run the scan to flag unusual spikes.</p>
+    </div>
+  </section>
+
+  <section id="about" class="block">
+    <h2>About</h2>
+    <div class="cols">
+      <div>
+        <p>I am Lavelah Vesselee, from Tailemai Town in Salayea District, Lofa County, Liberia. I study for a Bachelor of Computer Science (BCS) in AIML and Cybersecurity at Kalinga University in Naya Raipur, Chhattisgarh, India.</p>
+        <p>I am learning web development with HTML, CSS and JavaScript, and I build real sites to practise: a cybercrime analytics platform, a traffic management system and more.</p>
+      </div>
+      <div class="side">
+        <figure class="portrait">
+          <img src="images/profile.jpg" alt="Portrait of Lavelah Vesselee" width="320" height="400" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+          <div class="initials" hidden aria-label="Photo placeholder">LV</div>
+        </figure>
+        <dl class="facts">
+        <dt>Studying</dt><dd>BCS, AIML and Cybersecurity</dd>
+        <dt>University</dt><dd>Kalinga University, Naya Raipur</dd>
+        <dt>Home</dt><dd>Lofa County, Liberia</dd>
+        <dt>WhatsApp</dt><dd><a href="https://wa.me/231880111958">+231 880 111 958</a></dd>
+        <dt>Email</dt><dd><a href="mailto:lavelahvesselee1998@gmail.com">lavelahvesselee1998@gmail.com</a></dd>
+      </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="block">
+    <h2>Projects</h2>
+    <ul class="projects">
+      <li>
+        <h3>Cybercrime Predictive Analytics Framework</h3>
+        <p>A platform concept for law enforcement that uses data to anticipate and investigate cybercrime.</p>
+        <span class="tags">HTML, CSS, JavaScript</span>
+      </li>
+      <li>
+        <h3>TrafficFlow</h3>
+        <p>A traffic engineering and management website with a landing page, interactive dashboard, documentation, team page and contact form.</p>
+        <span class="tags">HTML, CSS, JavaScript</span>
+      </li>
+      <li>
+        <h3>Academia–Industry Collaboration Portal</h3>
+        <p>A portal for skill mapping, internships and placements, with separate roles for students, universities and companies.</p>
+        <span class="tags">Full-stack</span>
+      </li>
+      <li>
+        <h3>Agricultural Website</h3>
+        <p>A farming-focused site with a frontend, backend and database.</p>
+        <span class="tags">Full-stack</span>
+      </li>
+      <li>
+        <h3>Academic Research Portfolio</h3>
+        <p>A website for presenting research, publications and academic work.</p>
+        <span class="tags">Web design</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="research" class="block">
+    <h2>Research</h2>
+    <ul class="projects">
+      <li>
+        <h3>Cybersecurity and Digital Forensics</h3>
+        <p>A research paper written for first-year AIML and Cybersecurity students. It covers the fundamentals of cyber threats and defence, how digital investigations work, case studies, legal and ethical issues, how AI and machine learning are used in the field, and future trends.</p>
+        <span class="tags">Research paper</span>
+      </li>
+      <li>
+        <h3>Cybercrime Prediction Using Data</h3>
+        <p>Ongoing work on how analytics can help law enforcement anticipate cybercrime, which also drives the Cybercrime Predictive Analytics Framework project above.</p>
+        <span class="tags">In progress</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="documents" class="block">
+    <h2>Documents</h2>
+    <p>Research papers and files you can open or download.</p>
+    <ul id="docList" class="projects"></ul>
+    <div class="uploader">
+      <input id="docFile" class="sr" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" multiple>
+      <label class="btn" for="docFile">Add a document</label>
+      <p id="docNote" class="scan-msg">Files you add here are saved in this browser only. To show a file to every visitor, follow the steps in script.js.</p>
+    </div>
+  </section>
+
+  <section id="gallery" class="block">
+    <h2>Gallery</h2>
+    <p>Moments from my studies, projects and events. Select a photo to enlarge it.</p>
+    <ul id="gallery-grid" class="gallery"></ul>
+  </section>
+
+  <section id="skills" class="block">
+    <h2>Skills</h2>
+    <div class="cols">
+      <div>
+        <h3>Using now</h3>
+        <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive design</li></ul>
+      </div>
+      <div>
+        <h3>Learning</h3>
+        <ul class="chips"><li>C++</li><li>Cybersecurity</li><li>Digital forensics</li><li>AI and machine learning</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="block">
+    <h2>Contact</h2>
+    <p>Open to internships, collaborations and web projects. The quickest way to reach me is WhatsApp.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://wa.me/231880111958">Message on WhatsApp</a>
+      <a class="btn" href="mailto:lavelahvesselee1998@gmail.com">Send an email</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="year">2026</span> Lavelah Vesselee</p>
+</footer>
+<dialog id="lightbox" aria-label="Photo viewer">
+  <img id="lightboxImg" alt="">
+  <p id="lightboxCap"></p>
+  <button id="lightboxClose" class="btn small" type="button">Close</button>
+</dialog>
+<script src="script.js"></script>
+</body>
+</html>
